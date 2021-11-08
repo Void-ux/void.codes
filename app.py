@@ -5,7 +5,7 @@ from random import choice
 
 import json
 
-file = Path(__file__).resolve().parent / "webhook_info.json"
+file = Path(__file__).resolve().parent / "tokens.json"
 with open(file, 'r') as config_file:
 	config_file = json.load(config_file)
 	webhook_id = config_file['webhook_id']
