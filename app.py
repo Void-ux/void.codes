@@ -50,28 +50,3 @@ def wyr():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
-
-"""
-	c = Flask.g.cursor()
-	res = c.execute("SELECT * FROM saves WHERE member_id=$1", int(data['user']))
-	if not res:
-		c.execute("INSERT INTO saves (member_id, number_of_saves) VALUES ($1, $2)", float(data['user']), 0.5)
-	else:
-		c.execute("INSERT INTO saves (member_id, number_of_saves) VALUES ($1, $2)", float(data['user']), res[0]['number_of_saves'] + 0.5)
-	
-db_config_path = Path(__file__).resolve().parent / "databaseConfig.json"
-with open(db_config_path, "r") as dbFile:
-	dbFile = json.load(dbFile)
-
-try:
-	conn = psycopg2.connect(
-			host = dbFile["host"],
-			database = dbFile["database"],
-			user = dbFile["user"],
-			password = dbFile["password"]
-	)
-	Flask.g = conn
-
-except (Exception, Error) as error:
-	WEBHOOK.send("An error has occured whilst connecting to PSQL.", error)
-"""
