@@ -31,6 +31,7 @@ a {
 }
 .links {
 	text-align: center;
+	font-weight: bold;
 	margin-top: 20px;
 	padding: 20px;
 	border: 1px solid white;
@@ -43,11 +44,11 @@ a {
 }
 .github-lang img {
 	position: absolute;
-	left: 290px;
-	top: 150px;
+	left: 230px;
+	top: 350px;
 }
 .github-stat img {
 	position: absolute;
-	left: 290px;
-	top: 600px;
+	left: 230px;
+	top: 150px;
 }
