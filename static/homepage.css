@@ -72,10 +72,11 @@ a {
 .dropdown .dropbtn {
 	right: 20px;
 	top: 20px;
-	color: rgba(0, 0, 0, 0.6);
+	color: rgba(255, 255, 255, 0.5);
 	font-size: 16px;
 	font-family: bold;
 	border: 1px solid white;
+	border-radius: 40px;
 	outline: none;
 	padding: 14px 16px;
 	background-color: inherit;
