@@ -70,14 +70,19 @@ a {
 
 /* Dropdown button */
 .dropdown .dropbtn {
+	right: 20px;
+	top: 20px;
+	color: rgba(0, 0, 0, 0.6);
 	font-size: 16px;
-	border: none;
+	font-family: bold;
+	border: 1px solid white;
 	outline: none;
-	color: white;
 	padding: 14px 16px;
 	background-color: inherit;
-	font-family: inherit; /* Important for vertical align on mobile phones */
-	margin: 0; /* Important for vertical align on mobile phones */
+	
+	/*
+	font-family: inherit; Important for vertical align on mobile phones
+	margin: 0; Important for vertical align on mobile phones */
 }
 
 /* Add a highlight background color to navbar links on hover */
