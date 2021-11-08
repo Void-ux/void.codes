@@ -70,8 +70,6 @@ a {
 
 /* Dropdown button */
 .dropdown .dropbtn {
-	right: 20px;
-	top: 20px;
 	color: rgba(255, 255, 255, 0.5);
 	font-size: 16px;
 	font-family: bold;
