@@ -30,10 +30,11 @@ def receive():
 	WEBHOOK.send(f"{data['user']} | {data['guild']}", username = "LFG")
 	return "OK"
 
-@app.route("/lfg-patreon")
+@app.route("/lfg-patreon", methods = ["POST"])
 def receive_patreon_data():
 	data = json.loads(request.data)
 	
+	print(data)
 	WEBHOOK.send(data)
 	return "OK"
 
