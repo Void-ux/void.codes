@@ -1,7 +1,8 @@
 from flask import Flask, redirect, request, render_template, jsonify
-from discord import SyncWebhook
+from discord import SyncWebhook, webhook, File
 from pathlib import Path
 from random import choice
+from io import BytesIO
 
 import json
 
@@ -34,8 +35,8 @@ def receive():
 def receive_patreon_data():
 	data = json.loads(request.data)
 	
-	print(data)
-	WEBHOOK.send(data)
+	buffer = BytesIO(data)
+	WEBHOOK.send(file = File(fp = buffer, filename = "Traceback.py"))
 	return "OK"
 
 @app.route("/taskmanager", methods = ["GET"])
