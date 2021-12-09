@@ -31,12 +31,12 @@ def receive():
 	return "OK"
 
 @app.route("/lfg-patreon")
-def receive():
+def receive_patreon_data():
 	data = json.loads(request.data)
 	
 	WEBHOOK.send(data)
 	return "OK"
-	
+
 @app.route("/taskmanager", methods = ["GET"])
 def tm_homepage():
 	return render_template("taskmanager.html")
