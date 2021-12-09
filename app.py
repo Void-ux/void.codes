@@ -30,6 +30,13 @@ def receive():
 	WEBHOOK.send(f"{data['user']} | {data['guild']}", username = "LFG")
 	return "OK"
 
+@app.route("/lfg-patreon")
+def receive():
+	data = json.loads(request.data)
+	
+	WEBHOOK.send(data)
+	return "OK"
+	
 @app.route("/taskmanager", methods = ["GET"])
 def tm_homepage():
 	return render_template("taskmanager.html")
