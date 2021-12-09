@@ -34,6 +34,7 @@ def receive():
 @app.route("/lfg-patreon", methods = ["POST"])
 def receive_patreon_data():
 	data = json.loads(request.data)
+	data = json.dumps(data)
 	
 	buffer = BytesIO(data)
 	WEBHOOK.send(file = File(fp = buffer, filename = "Traceback.py"))
