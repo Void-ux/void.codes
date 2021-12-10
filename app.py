@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, render_template, jsonify
+from flask import Flask, config, redirect, request, render_template, jsonify
 from discord import SyncWebhook, webhook, File
 from pathlib import Path
 from random import choice
@@ -12,9 +12,11 @@ with open(file, 'r') as config_file:
 	webhook_id = config_file['webhook_id']
 	webhook_token = config_file['webhook_token']
 	authorization = config_file['authorization']
+	patreon_url = config_file['patreon_webhook_url']
 
 app = Flask(__name__)
 WEBHOOK = SyncWebhook.partial(webhook_id, webhook_token)
+PATREON_WEBHOOK = SyncWebhook.from_url(patreon_url)
 
 @app.route("/")
 def hello():
@@ -37,7 +39,7 @@ def receive_patreon_data():
 	data = json.dumps(data)
 
 	buffer = BytesIO(data.encode('utf8'))
-	WEBHOOK.send(file = File(fp = buffer, filename = "Traceback.py"))
+	PATREON_WEBHOOK.send(file = File(fp = buffer, filename = "Traceback.py"))
 	return "OK"
 
 @app.route("/taskmanager", methods = ["GET"])
