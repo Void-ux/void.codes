@@ -12,12 +12,11 @@ with open(file, 'r') as config_file:
 	webhook_id = config_file['webhook_id']
 	webhook_token = config_file['webhook_token']
 	authorization = config_file['authorization']
-	patreon_webhook_id = config_file['patreon_webhook_id']
-	patreon_webhook_token = config_file['patreon_webhook_token']
+	patreon_webhook_url = config_file['patreon_webhook_url']
 
 app = Flask(__name__)
 WEBHOOK = SyncWebhook.partial(webhook_id, webhook_token)
-PATREON_WEBHOOK = SyncWebhook.partial(patreon_webhook_id, patreon_webhook_token)
+PATREON_WEBHOOK = SyncWebhook.from_url(patreon_webhook_url)
 
 @app.route("/")
 def hello():
