@@ -37,8 +37,6 @@ def receive():
 def receive_patreon_data():
 	data = json.loads(request.data)
 	data = json.dumps(data)
-	print(request.headers)
-	print(request)
 	buffer = BytesIO(data.encode('utf8'))
 	PATREON_WEBHOOK.send(file = File(fp = buffer, filename = "Traceback.py"))
 	return "OK"
