@@ -4,19 +4,22 @@ from pathlib import Path
 from random import choice
 from io import BytesIO
 
+import psycopg2
 import json
 
 file = Path(__file__).resolve().parent / "tokens.json"
 with open(file, 'r') as config_file:
 	config_file = json.load(config_file)
-	webhook_id = config_file['webhook_id']
-	webhook_token = config_file['webhook_token']
 	authorization = config_file['authorization']
+	vote_webhook_url = config_file['vote_webhook_url']
 	patreon_webhook_url = config_file['patreon_webhook_url']
 
 app = Flask(__name__)
-WEBHOOK = SyncWebhook.partial(webhook_id, webhook_token)
+VOTE_WEBHOOK = SyncWebhook.from_url(vote_webhook_url)
 PATREON_WEBHOOK = SyncWebhook.from_url(patreon_webhook_url)
+
+conn = psycopg2.connect('dbname=daniel user=daniel')
+cur = conn.cursor()
 
 @app.route("/")
 def hello():
@@ -30,7 +33,7 @@ def receive():
 		return
 	data = json.loads(request.data)
 
-	WEBHOOK.send(f"{data['user']} | {data['guild']}", username = "LFG")
+	VOTE_WEBHOOK.send(f"{data['user']} | {data['guild']}", username = "LFG")
 	return "OK"
 
 @app.route("/lfg-patreon", methods = ["POST"])
