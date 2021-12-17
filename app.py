@@ -4,7 +4,6 @@ from pathlib import Path
 from random import choice
 from io import BytesIO
 
-import psycopg2
 import json
 
 file = Path(__file__).resolve().parent / "tokens.json"
@@ -17,9 +16,6 @@ with open(file, 'r') as config_file:
 app = Flask(__name__)
 VOTE_WEBHOOK = SyncWebhook.from_url(vote_webhook_url)
 PATREON_WEBHOOK = SyncWebhook.from_url(patreon_webhook_url)
-
-conn = psycopg2.connect('dbname=daniel user=daniel')
-cur = conn.cursor()
 
 @app.route("/")
 def hello():
