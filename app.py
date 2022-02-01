@@ -46,7 +46,7 @@ def tm_homepage():
 
 @app.route("/wyr", methods = ["GET"])
 def wyr():
-	wyr_file = Path(r"/home/dan/TaskManager/cogs/WyRQuestionsOld.json")
+	wyr_file = Path(r"/home/dan/Task-Manager/cogs/WyRQuestionsOld.json")
 	with open (wyr_file, "r") as file:
 		file = json.load(file)
 	
