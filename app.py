@@ -42,7 +42,7 @@ def receive_patreon_data():
 
 @app.route("/wyr", methods = ["GET"])
 def wyr():
-	wyr_file = Path(r"/home/dan/Task-Manager/cogs/WyRQuestionsOld.json")
+	wyr_file = Path(r"/home/dan/Task-Manager/cogs/json/WyRQuestionsOld.json")
 	with open (wyr_file, "r") as file:
 		file = json.load(file)
 	
