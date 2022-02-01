@@ -40,10 +40,6 @@ def receive_patreon_data():
 	PATREON_WEBHOOK.send(file = File(fp = buffer, filename = "Traceback.py"))
 	return "OK"
 
-@app.route("/taskmanager", methods = ["GET"])
-def tm_homepage():
-	return render_template("taskmanager.html")
-
 @app.route("/wyr", methods = ["GET"])
 def wyr():
 	wyr_file = Path(r"/home/dan/Task-Manager/cogs/WyRQuestionsOld.json")
