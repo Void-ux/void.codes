@@ -23,12 +23,15 @@ def hello():
     return render_template("index.html")
 
 
-@app.route("/lfg-patreon", methods=["POST"])
-def receive_patreon_data():
+@app.route("/lfg-endpoint", methods=["GET", "POST"])
+def receive():
+    if request.method == "GET":
+        return render_template("405.html")
+    if request.headers.get("Authorization") != authorization:
+        return
     data = json.loads(request.data)
-    data = json.dumps(data)
-    buffer = BytesIO(data.encode('utf8'))
-    PATREON_WEBHOOK.send(file=File(fp=buffer, filename="Traceback.py"))
+
+    VOTE_WEBHOOK.send(f"{data['user']} | {data['guild']}", username="LFG")
     return "OK"
 
 
