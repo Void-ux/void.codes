@@ -2,7 +2,6 @@ from flask import Flask, config, redirect, request, render_template, jsonify
 from discord import SyncWebhook, File
 from pathlib import Path
 from random import choice
-from io import BytesIO
 
 import json
 
