@@ -1,11 +1,19 @@
-from flask import Flask, config, redirect, request, render_template, jsonify
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route('/')
 def hello():
-    return render_template("index.html")
+    if request.method == 'GET':
+        return render_template('index.html')
+    elif request.method == 'POST':
+        print(request.json)
+
+
+@app.route('')
+def chief_ron():
+    return render_template('chief_ron.html')
 
 
 @app.errorhandler(404)
@@ -13,5 +21,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-if __name__ == "__main__":
+if __name__ =='__main__':
     app.run(host='0.0.0.0')
