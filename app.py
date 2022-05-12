@@ -11,7 +11,7 @@ def hello():
         print(request.json)
 
 
-@app.route('')
+@app.route('/chiefron')
 def chief_ron():
     return render_template('chief_ron.html')
 
