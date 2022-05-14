@@ -41,14 +41,4 @@ a {
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 40px;
-}
-.github-lang img {
-	position: absolute;
-	left: 230px;
-	top: 350px;
-}
-.github-stat img {
-	position: absolute;
-	left: 230px;
-	top: 150px;
 } 
